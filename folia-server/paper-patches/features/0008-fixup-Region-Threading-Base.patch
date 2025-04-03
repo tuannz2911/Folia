@@ -5,10 +5,10 @@ Subject: [PATCH] fixup! Region Threading Base
 
 
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index 6c2d9c9621f665412f1a8ccc41083fb0e3a07ed5..935ac76cec67ea661a392ff02396aa7aefd56268 100644
+index ae7ee8c67a71b0bc319d8079094b1806fc3e305a..1a1d44c2aa89d8c7f9ec431b5b04d4c6e93a9d55 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-@@ -3125,7 +3125,7 @@ public final class CraftServer implements Server {
+@@ -3120,7 +3120,7 @@ public final class CraftServer implements Server {
      @Override
      public double[] getTPS() {
          // Folia start - region threading
@@ -18,10 +18,10 @@ index 6c2d9c9621f665412f1a8ccc41083fb0e3a07ed5..935ac76cec67ea661a392ff02396aa7a
              // might be on the shutdown thread, try retrieving the current region
              if (io.papermc.paper.threadedregions.TickRegionScheduler.getCurrentRegion() != null) {
 diff --git a/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java b/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
-index 71cb264e399d098f9e40c71258f1412aa0dbafc5..c53de765b624071cb4cd3fa69b5df4de5b95bf3b 100644
+index ac878520dc4aaa0e6a1ce8de0982d60a8397bc15..512ef437119041b33b62ef4675bdd1b27fd9a403 100644
 --- a/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
-@@ -229,6 +229,47 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
+@@ -224,6 +224,47 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
      private boolean simplifyContainerDesyncCheck = GlobalConfiguration.get().unsupportedSettings.simplifyRemoteItemMatching;
      private long lastSaveTime; // Paper - getLastPlayed replacement API
  
